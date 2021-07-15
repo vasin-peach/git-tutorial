@@ -175,9 +175,10 @@ Branch เปรียบได้เหมือนการแบ่ง versio
 
 ```bash
 $ git branch #ดู local branches
+$ git branch {ชื่อ branch} #สร้าง branch แต่ยังไม่ได้ checkout
 $ git branch -r #ดู remote branches
 $ git branch -a #ดู branches ทั้งหมด
-$ git branch -d {ชื่อ branch} #สร้าง branch ใหม่บน local
+$ git branch -D {ชื่อ branch} #ลบ branch
 ```
 
 ## Git Checkout
@@ -191,3 +192,15 @@ $ git checkout --track origin/{ชื่อ branch} #เปลี่ยน branc
 ```
 
 > กรณีที่เราสร้าง branch ใหม่แล้ว branch นั้นยังไม่ได้มีอยู่บน remote server จำเป็นต้องตั้ง `upstream` ก่อนเพื่อทำการเชื่อม branch `local` ไปยัง `remote server` [ดูที่นี่](readme.md#git-push)
+
+## Git Merge
+
+> คำสั่งสำหรับร่วม branch ที่เราอยู่กับ branch เป้าหมาย
+
+> เราต้อง checkout branch ก่อนแล้วค่อย merge กับ branch เป้าหมาย
+
+> ตัวอย่างเช่นเราอยาก merge branch `item` เข้ากับ `master` เราจะ checkout ที่ `master` ก่อนหลังจากนั้นจึงพิมคำสั่ง `git merge item`
+
+```bash
+$ git merge {ชื่อ branch เป้าหมาย}
+```
